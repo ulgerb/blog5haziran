@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- Required meta tags always come first -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>Material Design Bootstrap Template</title>
+   <!-- Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+   <!-- MDB -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+   <!-- Meta OG -->
+   <meta property="og:title" content="E-commerce Post Page Template">
+   <meta property="og:description"
+      content="Providing your customers with something more than just products might be just the solution to make your community thrive.">
+   <meta property="og:image" content="https://mdbootstrap.com/img/Live/MDB/ecommercenow.jpg">
+   <meta property="og:url" content="https://mdbootstrap.com/live/_MDB/templates/Ecommerce/post.html">
+   <meta property="og:site_name" content="mdbootstrap.com">
+   <!-- /Meta OG -->
+
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <!-- Customizer -->
+   <link rel="stylesheet" href="https://mdbootstrap.com/live/_MDB/css/customizer.min.css">
+
+</head>
+
+<body class="hidden-sn pink-skin animated">
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <!-- Container wrapper -->
+      <div class="container">
+         <!-- Navbar brand -->
+         <a class="navbar-brand me-2" href="https://mdbgo.com/">
+            <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="16" alt="MDB Logo"
+               loading="lazy" style="margin-top: -1px;" />
+         </a>
+   
+         <!-- Toggle button -->
+         <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+         </button>
+   
+         <!-- Collapsible wrapper -->
+         <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                  <a class="nav-link" href="/">Anasayfa</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Tüm Bloglar</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">İletişim</a>
+               </li>
+            </ul>
+            <!-- Left links -->
+   
+            <div class="d-flex align-items-center">
+               <button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
+                  Login
+               </button>
+               <button data-mdb-ripple-init type="button" class="btn btn-primary me-3">
+                  Sign up for free
+               </button>
+               <a data-mdb-ripple-init class="btn btn-dark px-3" href="https://github.com/mdbootstrap/mdb-ui-kit"
+                  role="button"><i class="fab fa-github"></i></a>
+            </div>
+         </div>
+         <!-- Collapsible wrapper -->
+      </div>
+      <!-- Container wrapper -->
+   </nav>
+   <!-- Navbar -->
+
+   <!--Main layout-->
+   <main>
+      <div class="container">
+         <div class="row">
+
+            <!--Post column-->
+            <div class="col-md-8">
+
+               <!--Section: Post-->
+               <section class="section section-blog-fw">
+
+                  <!--First row-->
+                  <div class="row">
+
+                     <div class="col-md-12">
+
+
+                        <!--Card-->
+                        <div class="card card-cascade wider reverse my-4">
+
+                           <!--Card image-->
+                           <div class="view overlay hm-white-slight">
+                              <img src="{{ blog.image.url }}" class="img-fluid">
+                              <a href="#!">
+                                 <div class="mask"></div>
+                              </a>
+                           </div>
+                           <!--/Card image-->
+
+                           <!--Card content-->
+                           <div class="card-body">
+                              <h2>{{ blog.title }}</h2>
+                              <p class="d-flex justify-content-between">
+                                 <a class="text-primary">Yazar: {{ blog.user }}</a> 
+                                 <span class="text-secondary">{{ blog.date_now }}</span>
+                              </p>
+
+
+                           </div>
+                           <!--/.Card content-->
+
+                        </div>
+                        <!--/.Card-->
+
+
+                        <!--Post text-->
+                        <div class="post-text">
+                           <p>{{ blog.text|linebreaks }}</p>
+                        </div>
+                        <!--/Post text-->
+
+                        <hr>
+
+                        <div class="text-center">
+                           <h3 class="h3-responsive">Do you want to share?</h3>
+                           <!--Facebook-->
+                           <a href="https://www.facebook.com/mdbootstrap" target="_blank"
+                              class="btn-floating  btn-fb"><i class="fa fa-facebook"> </i></a>
+                           <!--Twitter-->
+                           <a href="https://twitter.com/MDBootstrap" target="_blank" class="btn-floating  btn-tw"><i
+                                 class="fa fa-twitter"> </i></a>
+                           <!--Google +-->
+                           <a href="https://plus.google.com/u/0/+Mdbootstrap" target="_blank"
+                              class="btn-floating  btn-gplus"><i class="fa fa-google-plus"> </i></a>
+                        </div>
+
+                     </div>
+
+                  </div>
+                  <!--/First row-->
+
+               </section>
+               <!--/Section: Post-->
+
+               <!--Section: About author-->
+               <section class="mb-4">
+                  <!--Author box-->
+                  <div class="author-box">
+                     <!--Name-->
+                     <h3 class="h3-responsive text-center">About author</h3>
+                     <hr>
+                     <div class="row">
+                        <!--Avatar-->
+                        <div class="col-12 col-sm-2">
+                           <img src="http://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
+                              class="img-fluid rounded-circle z-depth-2">
+                        </div>
+
+                        <!--Author Data-->
+                        <div class="col-12 col-sm-10">
+
+                           <p><strong>John Doe</strong></p>
+
+                           <div class="personal-sm">
+                              <a class="email-ic"><i class="fa fa-home"> </i></a>
+                              <a href="https://www.facebook.com/mdbootstrap" target="_blank" class="fb-ic"><i
+                                    class="fa fa-facebook"> </i></a>
+                              <a href="https://twitter.com/MDBootstrap" target="_blank" class="tw-ic"><i
+                                    class="fa fa-twitter"> </i></a>
+                              <a href="https://plus.google.com/u/0/+Mdbootstrap" target="_blank" class="gplus-ic"><i
+                                    class="fa fa-google-plus"> </i></a>
+                              <a href="https://www.linkedin.com/in/michal-szymanski-9228918a" target="_blank"
+                                 class="li-ic"><i class="fa fa-linkedin"> </i></a>
+                              <a class="email-ic"><i class="fa fa-envelope-o"> </i></a>
+                           </div>
+
+                           <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                           </p>
+                        </div>
+
+                     </div>
+                  </div>
+                  <!--/.Author box-->
+               </section>
+               <!--/Section: About author-->
+
+               <!--Section: Comments list-->
+               <section>
+                  <div class="comments-list">
+                     <div class="section-heading">
+                        <h1>Comments <span class="badge primary-color">3</span></h1>
+                     </div>
+                     <!--First row-->
+                     <div class="row">
+                        <!--Image column-->
+                        <div class="col-sm-2 col-12">
+                           <img src="http://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg">
+                        </div>
+                        <!--/.Image column-->
+
+                        <!--Content column-->
+                        <div class="col-sm-10 col-12">
+                           <a>
+                              <h3 class="user-name">Danny Johnson</h3>
+                           </a>
+
+                           <div class="card-data">
+                              <ul class="list-unstyled">
+                                 <li class="comment-date"><i class="fa fa-clock-o"></i> 05/10/2015</li>
+                              </ul>
+                           </div>
+
+                           <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                              cupidatat non proident.</p>
+                        </div>
+                        <!--/.Content column-->
+
+                     </div>
+                     <!--/.First row-->
+
+                     <!--Second row-->
+                     <div class="row">
+                        <!--Image column-->
+                        <div class="col-sm-2 col-12">
+                           <img src="http://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg">
+                        </div>
+                        <!--/.Image column-->
+
+                        <!--Content column-->
+                        <div class="col-sm-10 col-12">
+                           <a>
+                              <h3 class="user-name">Marta Tev</h3>
+                           </a>
+
+                           <div class="card-data">
+                              <ul class="list-unstyled">
+                                 <li class="comment-date"><i class="fa fa-clock-o"></i> 08/10/2015</li>
+                              </ul>
+                           </div>
+
+                           <p class="comment-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                              veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                              voluptatem quia voluptas sit aspernatur.</p>
+                        </div>
+                        <!--/.Content column-->
+
+                     </div>
+                     <!--/.Second row-->
+
+                     <!--Third row-->
+                     <div class="row">
+                        <!--Image column-->
+                        <div class="col-sm-2 col-12">
+                           <img src="http://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg">
+                        </div>
+                        <!--/.Image column-->
+
+                        <!--Content column-->
+                        <div class="col-sm-10 col-12">
+                           <a>
+                              <h3 class="user-name">Anna Maria</h3>
+                           </a>
+
+                           <div class="card-data">
+                              <ul class="list-unstyled">
+                                 <li class="comment-date"><i class="fa fa-clock-o"></i> 17/10/2015</li>
+                              </ul>
+                           </div>
+
+                           <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                              blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                              excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia.
+                           </p>
+                        </div>
+                        <!--/.Content column-->
+
+                     </div>
+                     <!--/.Third row-->
+
+                  </div>
+               </section>
+               <!--/Section: Comments list-->
+
+               <hr class="between-sections">
+
+               <!--Section: Leave a reply (Logged In User) -->
+               <section>
+                  <div class="reply-form">
+                     <h1 class="section-heading">Leave a reply </h1>
+                     <p class="text-center">(Logged In User)</p>
+
+                     <!--Third row-->
+                     <div class="row">
+                        <!--Image column-->
+                        <div class="col-sm-2 col-12">
+                           <img src="http://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg">
+                        </div>
+                        <!--/.Image column-->
+
+                        <!--Content column-->
+                        <div class="col-sm-10 col-12">
+                           <div class="md-form">
+                              <textarea type="text" id="form8" class="md-textarea"></textarea>
+                              <label for="form8">Your message</label>
+                           </div>
+
+                           <div class="text-center">
+                              <button class="btn btn-primary">Submit</button>
+                           </div>
+                        </div>
+                        <!--/.Content column-->
+
+                     </div>
+                     <!--/.Third row-->
+                  </div>
+               </section>
+               <!--/.Section: Leave a reply (Logged In User)-->
+
+               <hr class="between-sections">
+
+               <!--Section: Leave a reply (Not Logged In User)-->
+               <section>
+                  <div class="reply-form">
+                     <h1 class="section-heading">Leave a reply </h1>
+                     <p class="text-center">(Not Logged In User)</p>
+
+                     <h4>Sign up with: <span>
+                           <!--Facebook-->
+                           <a href="https://www.facebook.com/mdbootstrap" target="_blank"
+                              class="btn-floating  btn-fb"><i class="fa fa-facebook"> </i></a>
+                           <!--Twitter-->
+                           <a href="https://twitter.com/MDBootstrap" target="_blank" class="btn-floating  btn-tw"><i
+                                 class="fa fa-twitter"> </i></a>
+                           <!--Google +-->
+                           <a href="https://plus.google.com/u/0/+Mdbootstrap" target="_blank"
+                              class="btn-floating  btn-gplus"><i class="fa fa-google-plus"> </i></a>
+
+                        </span> <br><br>or:</h4>
+
+                     <div class="md-form">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="text" id="form22" class="form-control">
+                        <label for="form42">Your name</label>
+                     </div>
+
+                     <div class="md-form">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="text" id="form32" class="form-control">
+                        <label for="form34">Your email</label>
+                     </div>
+
+                     <div class="md-form">
+                        <i class="fa fa-home prefix"></i>
+                        <input type="text" id="form32" class="form-control">
+                        <label for="form34">Your website</label>
+                     </div>
+
+                     <div class="md-form">
+                        <i class="fa fa-pencil prefix"></i>
+                        <textarea type="text" id="form8" class="md-textarea"></textarea>
+                        <label for="form8">Your message</label>
+                     </div>
+
+                     <div class="text-center">
+                        <button class="btn btn-primary">Submit</button>
+                     </div>
+                  </div>
+               </section>
+               <!--/Section: Leave a reply (Not Logged In User)-->
+            </div>
+            <!--/Post column-->
+            <!--Right sidebar-->
+            <div class="col-md-4">
+               
+
+            </div>
+            <!--/Right sidebar-->
+         </div>
+      </div>
+   </main>
+   <!--/Main layout-->
+
+   <!-- JQuery -->
+   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+   <!-- Tooltips -->
+   <script type="text/javascript" src="js/popper.min.js"></script>
+
+   <!-- Bootstrap core JavaScript -->
+   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+   <!-- MDB core JavaScript -->
+   <script type="text/javascript" src="js/mdb.min.js"></script>
+
+   <!-- Customizer -->
+   <script type="text/javascript" src="https://mdbootstrap.com/live/_MDB/js/customizer.min.js"></script>
+
+   <script>
+      // SideNav init
+      $(".button-collapse").sideNav();
+      var el = document.querySelector('.custom-scrollbar');
+      Ps.initialize(el);
+      var el = document.querySelector('.custom-scrollbar');
+      Ps.initialize(el);
+
+      new WOW().init();
+
+      $(function () {
+         $(".sticky").sticky({
+            topSpacing: 90
+            , zIndex: 2
+            , stopper: ".page-footer"
+         });
+      });
+
+      // Tooltips Initialization
+      $(function () {
+         $('[data-toggle="tooltip"]').tooltip()
+
+      })
+   </script>
+
+</body>
+
+</html>

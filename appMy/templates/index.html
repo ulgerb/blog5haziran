@@ -9,6 +9,8 @@
    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
    <!-- MDB -->
    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
    <style>
       .tags span:nth-child(3n){
          color: blueviolet;
@@ -121,11 +123,13 @@
                   {% for i in blog_list %}
                   <div class="col-12">
                      <div class="card mb-3 flex-row" style="height: 200px;">
-                        <img src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp" alt="Trendy Pants and Shoes"
-                           class="img-fluid rounded-start h-100" style="width: 350px; object-fit: cover;"/>
-                        <div class="card-body d-flex flex-column justify-content-between">
+                        <a href="/detail/{{ i.id }}">
+                           <img src="{{ i.image.url }}" alt="Trendy Pants and Shoes"
+                              class="img-fluid rounded-start h-100" style="width: 300px !important; min-width: 300px; object-fit: cover;"/>
+                        </a>
+                        <div class="card-body p-3 d-flex flex-column justify-content-between">
                            <h5 class="card-title">
-                              <div>{{ i.title }}</div>
+                              <a href="/detail/{{ i.id }}">{{ i.title }}</a>
                            </h5>
                            <div class="d-flex gap-2 tags">
                               <span>#Html</span>
@@ -152,8 +156,72 @@
             <!-- Blog Card End  -->
             <!-- Sidenav Start  -->
             <div class="col-4 mt-2 rounded-start-3" style="box-shadow: -3px 0px 0px cornflowerblue;">
-               <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Beğenilenler</h6>
+               <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Yorum Alanlar</h6>
+               <!-- Recent posts -->
+               <section class="section blog-widget-content">
+                  <div class="single-post">
+                     <div class="row">
+                        <div class="col-4">
+                           <div class="view overlay hm-white-slight z-depth-1">
+                              <img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(44).jpg"
+                                 class="img-fluid" alt="">
+                              <a>
+                                 <div class="mask waves-light"></div>
+                              </a>
+                           </div>
+                        </div>
+                        <div class="col-8">
+                           <div class="post-data">
+                              <p><i class="fa fa-clock-o"></i> 24/08/2016</p>
+                              <a><i class="fa fa-comments-o"></i> 114</a>
+                           </div>
+                           <h6><a>Suit for every occasion.</a></h6>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="single-post">
+                     <div class="row">
+                        <div class="col-4">
+                           <div class="view overlay hm-white-slight z-depth-1">
+                              <img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(45).jpg"
+                                 class="img-fluid" alt="">
+                              <a>
+                                 <div class="mask waves-light"></div>
+                              </a>
+                           </div>
+                        </div>
+                        <div class="col-8">
+                           <div class="post-data">
+                              <p><i class="fa fa-clock-o"></i> 21/08/2016</p>
+                              <a><i class="fa fa-comments-o"></i> 96</a>
+                           </div>
+                           <h6><a>How to choose a watch?</a></h6>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="single-post">
+                     <div class="row">
+                        <div class="col-4">
+                           <div class="view overlay hm-white-slight z-depth-1">
+                              <img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(42).jpg"
+                                 class="img-fluid" alt="">
+                              <a>
+                                 <div class="mask waves-light"></div>
+                              </a>
+                           </div>
+                        </div>
+                        <div class="col-8">
+                           <div class="post-data">
+                              <p><i class="fa fa-clock-o"></i> 19/07/2016</p>
+                              <a><i class="fa fa-comments-o"></i> 105</a>
+                           </div>
+                           <h6><a>Sneakers - what to wear?</a></h6>
+                        </div>
+                     </div>
+                  </div>
+               </section>
                
+               <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Beğenilenler</h6>
                <ul class="list-group list-group-light mb-4">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                      <div class="d-flex align-items-center">
@@ -176,7 +244,7 @@
                   </li>
                </ul>
                
-               <h6 class="bg-body-tertiary p-2 border-top border-bottom">En Çok Yorum Alanlar</h6>
+               <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Yorum Alanlar</h6>
                
                <ul class="list-group list-group-light">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -199,6 +267,8 @@
                      </div>
                   </li>
                </ul>
+
+               
             </div>
             <!-- Sidenav End  -->
          </div>
@@ -207,6 +277,8 @@
    </main>
 
 
+
+   
    <!-- MDB -->
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
 </body>
