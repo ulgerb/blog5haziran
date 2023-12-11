@@ -111,7 +111,7 @@
 
       <!-- Bloglar -->
       <div class="container">
-         <div class="row">
+         <div class="row my-4">
             <!-- Blog Card Start  -->
             <div class="col-8">
                <div class="row">
@@ -156,116 +156,83 @@
             <!-- Blog Card End  -->
             <!-- Sidenav Start  -->
             <div class="col-4 mt-2 rounded-start-3" style="box-shadow: -3px 0px 0px cornflowerblue;">
-               <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Yorum Alanlar</h6>
+               <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">İlginizi Çekebilecek Yazılar</h6>
                <!-- Recent posts -->
                <section class="section blog-widget-content">
-                  <div class="single-post">
-                     <div class="row">
-                        <div class="col-4">
-                           <div class="view overlay hm-white-slight z-depth-1">
-                              <img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(44).jpg"
-                                 class="img-fluid" alt="">
-                              <a>
-                                 <div class="mask waves-light"></div>
-                              </a>
+                  
+                  {% for i in blog_random_list %}
+                     <div class="single-post">
+                        <div class="row">
+                           <div class="col-4">
+                              <div class="view overlay hm-white-slight z-depth-1">
+                                 <img src="{{ i.image.url }}" class="img-fluid" alt="">
+                                 <a>
+                                    <div class="mask waves-light"></div>
+                                 </a>
+                              </div>
                            </div>
-                        </div>
-                        <div class="col-8">
-                           <div class="post-data">
-                              <p><i class="fa fa-clock-o"></i> 24/08/2016</p>
-                              <a><i class="fa fa-comments-o"></i> 114</a>
+                           <div class="col-8">
+                              <div class="post-data">
+                                 <p><i class="fa fa-clock-o"></i> {{ i.date_now }}</p>
+                                 <a><i class="fa fa-comments-o"></i> {{ i.comment_num }}</a>
+                              </div>
+                              <h6><a>Suit for every occasion.</a></h6>
                            </div>
-                           <h6><a>Suit for every occasion.</a></h6>
                         </div>
                      </div>
-                  </div>
-                  <div class="single-post">
-                     <div class="row">
-                        <div class="col-4">
-                           <div class="view overlay hm-white-slight z-depth-1">
-                              <img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(45).jpg"
-                                 class="img-fluid" alt="">
-                              <a>
-                                 <div class="mask waves-light"></div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-8">
-                           <div class="post-data">
-                              <p><i class="fa fa-clock-o"></i> 21/08/2016</p>
-                              <a><i class="fa fa-comments-o"></i> 96</a>
-                           </div>
-                           <h6><a>How to choose a watch?</a></h6>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="single-post">
-                     <div class="row">
-                        <div class="col-4">
-                           <div class="view overlay hm-white-slight z-depth-1">
-                              <img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(42).jpg"
-                                 class="img-fluid" alt="">
-                              <a>
-                                 <div class="mask waves-light"></div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-8">
-                           <div class="post-data">
-                              <p><i class="fa fa-clock-o"></i> 19/07/2016</p>
-                              <a><i class="fa fa-comments-o"></i> 105</a>
-                           </div>
-                           <h6><a>Sneakers - what to wear?</a></h6>
-                        </div>
-                     </div>
-                  </div>
+                  {% endfor %}
+                     
                </section>
                
                <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Beğenilenler</h6>
                <ul class="list-group list-group-light mb-4">
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                     <div class="d-flex align-items-center">
-                        <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" />
-                        <div class="ms-3">
-                           <p class="fw-bold mb-1">John Doe</p>
-                           <div class="d-flex gap-2 tags">
-                              <span>#Html</span>
-                              <span>#Css</span>
-                              <span>#Js</span>
-                              <span>#React</span>
-                              <span>#django</span>
-                              <span>#jquery</span>
-                              <span>#scss</span>
-                              <span>#dart</span>
-                              <span>#c++</span>
+                  
+                  {% for i in blog_likes %}
+                     <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="/detail/{{ i.id }}" class="d-flex align-items-center">
+                           <img src="{{ i.image.url }}" alt="" style="width: 100px; height: 100px" />
+                           <div class="ms-3">
+                              <p class="fw-bold mb-1">{{ i.title }}</p>
+                              <div class="d-flex mb-2 gap-2 tags">
+                                 <span>#Html</span>
+                                 <span>#Css</span>
+                                 <span>#Js</span>
+                                 <span>#React</span>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                 <span><i class="fa fa-clock-o"></i>{{ i.date_now }}</span>
+                                 <span><i class="fa fa-comments-o"></i>{{ i.comment_num }} Yorum</span>
+                              </div>
                            </div>
-                        </div>
-                     </div>
-                  </li>
+                        </a>
+                     </li>
+                  {% endfor %}
+                     
                </ul>
                
                <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Yorum Alanlar</h6>
                
                <ul class="list-group list-group-light">
+                  {% for i in blog_comments %}
                   <li class="list-group-item d-flex justify-content-between align-items-center">
-                     <div class="d-flex align-items-center">
-                        <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" />
+                     <a href="/detail/{{ i.id }}" class="d-flex align-items-center">
+                        <img src="{{ i.image.url }}" alt="" style="width: 100px; height: 100px" />
                         <div class="ms-3">
-                           <p class="fw-bold mb-1">John Doe</p>
-                           <div class="d-flex gap-2 tags">
+                           <p class="fw-bold mb-1">{{ i.title }}</p>
+                           <div class="d-flex mb-2 gap-2 tags">
                               <span>#Html</span>
                               <span>#Css</span>
                               <span>#Js</span>
                               <span>#React</span>
-                              <span>#django</span>
-                              <span>#jquery</span>
-                              <span>#scss</span>
-                              <span>#dart</span>
-                              <span>#c++</span>
+                           </div>
+                           <div class="d-flex justify-content-between">
+                              <span><i class="fa fa-clock-o"></i>{{ i.date_now }}</span>
+                              <span><i class="fa fa-comments-o"></i>{{ i.comment_num }} Yorum</span>
                            </div>
                         </div>
-                     </div>
+                     </a>
                   </li>
+                  {% endfor %}
                </ul>
 
                
