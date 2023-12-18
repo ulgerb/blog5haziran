@@ -9,9 +9,12 @@ def indexPage(request):
    # print(blogs)
    
    blog_list = Blog.objects.all().order_by('-id')
+   
+   # Sidenav Start
    blog_likes = Blog.objects.annotate(q_count=Count('likes')).order_by('-q_count')
    blog_random_list = Blog.objects.all().order_by('?')
    blog_comments = Blog.objects.all().order_by('-comment_num')
+   # Sidenav End
    
    context = {
       "blog_list":blog_list,
@@ -37,5 +40,32 @@ def detailPage(request, bid):
    context = {
       "blog":blog,
       "comment_list":comment_list,
+      # Sidenav Start
+      "blog_likes" : Blog.objects.annotate(q_count=Count('likes')).order_by('-q_count')[:5],
+      "blog_random_list" : Blog.objects.all().order_by('?')[:4],
+      "blog_comments" : Blog.objects.all().order_by('-comment_num')[:4],
+      # Sidenav End
    }
    return render(request, "detail.html", context)
+
+ 
+def contactPage(request):
+
+   if request.method == "POST":
+      fullname = request.POST.get("fullname")
+      email = request.POST.get("email")
+      subject = request.POST.get("subject")
+      text = request.POST.get("text")
+      
+      contact = Contact(fullname=fullname, email=email, title=subject, text=text)
+      contact.save()
+   
+   context = {}
+   return render( request, "contact.html", context)
+
+def allBlogPage(request):
+   blog_list = Blog.objects.all().order_by('-id')
+   context = {
+      "blog_list":blog_list,
+   }
+   return render( request, "blog-all.html", context)

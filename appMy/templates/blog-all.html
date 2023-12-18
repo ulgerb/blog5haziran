@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+<main>
+
+   <!-- Bloglar -->
+   <div class="container">
+      <div class="row my-4">
+         <!-- Blog Card Start  -->
+         <div class="col-8">
+            <div class="row">
+               <h2 style="box-shadow: -3px 3px 0 cornflowerblue; width: fit-content;"
+                  class="m-2 mb-4 p-2 rounded-bottom-3">
+                  En Popüler Bloglar
+               </h2>
+
+
+               {% for i in blog_list %}
+               <div class="col-12">
+                  <div class="card mb-3 flex-row" style="height: 200px;">
+                     <a href="/detail/{{ i.id }}">
+                        <img src="{{ i.image.url }}" alt="Trendy Pants and Shoes" class="img-fluid rounded-start h-100"
+                           style="width: 300px !important; min-width: 300px; object-fit: cover;" />
+                     </a>
+                     <div class="card-body p-3 d-flex flex-column justify-content-between">
+                        <h5 class="card-title">
+                           <a href="/detail/{{ i.id }}">{{ i.title }}</a>
+                        </h5>
+                        <div class="d-flex gap-2 tags">
+                           <span>#Html</span>
+                           <span>#Css</span>
+                           <span>#Js</span>
+                           <span>#React</span>
+                           <span>#django</span>
+                        </div>
+                        <p class="card-text">
+                           {{ i.text|truncatechars:100 }}
+                        </p>
+                        <p class="card-text justify-content-between d-flex">
+                           <small class="text-muted">{{ i.date_now }}</small>
+                           <small class="text-primary">{{ i.user }}</small>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+
+
+            </div>
+         </div>
+         <!-- Blog Card End  -->
+
+         <div class="col-4">
+            <ul class="list-group list-group-light">
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                     <div class="fw-bold">John Doe</div>
+                     <div class="text-muted">john.doe@gmail.com</div>
+                  </div>
+                  <span class="badge rounded-pill badge-success">Active</span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                     <div class="fw-bold">Alex Ray</div>
+                     <div class="text-muted">alex.ray@gmail.com</div>
+                  </div>
+                  <span class="badge rounded-pill badge-primary">Onboarding</span>
+               </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                     <div class="fw-bold">Kate Hunington</div>
+                     <div class="text-muted">kate.hunington@gmail.com</div>
+                  </div>
+                  <span class="badge rounded-pill badge-warning">Awaiting</span>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+   </div>
+
+</main>
+{% endblock body %}
+
+
+{% block head %}
+<style>
+   .tags span:nth-child(3n) {
+      color: blueviolet;
+   }
+
+   .tags span:nth-child(3n-1) {
+      color: rgb(64, 129, 251);
+   }
+
+   .tags span:nth-child(3n-2) {
+      color: brown;
+   }
+</style>
+{% endblock head %}

@@ -24,4 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', indexPage),
     path('detail/<bid>', detailPage),
+    path('iletisim', contactPage),
+    path('all', allBlogPage),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

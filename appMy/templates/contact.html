@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+
+{% block body %}
+   <main>
+      <!--Section: Leave a reply (Not Logged In User)-->
+      <section class="container my-4">
+         <form method="POST" class="reply-form">
+            {% csrf_token %}
+            <h1 class="section-heading">İletişim</h1>
+            <h4>İletişime Geç: <span>
+                  <!--Facebook-->
+                  <a href="https://www.facebook.com/mdbootstrap" target="_blank" class="btn-floating  btn-fb"><i
+                        class="fa fa-facebook"> </i></a>
+                  <!--Twitter-->
+                  <a href="https://twitter.com/MDBootstrap" target="_blank" class="btn-floating  btn-tw"><i
+                        class="fa fa-twitter"> </i></a>
+                  <!--Google +-->
+                  <a href="https://plus.google.com/u/0/+Mdbootstrap" target="_blank" class="btn-floating  btn-gplus"><i
+                        class="fa fa-google-plus"> </i></a>
+      
+               </span> <br><br>or:</h4>
+      
+            <div class="md-form">
+               
+               <label for="form42"><i class="fa fa-user prefix"></i> Adınız - Soyadınız</label>
+               <input name="fullname" type="text" id="form22" class="form-control">
+            </div>
+      
+            <div class="md-form">
+               
+               <label for="form34"><i class="fa fa-envelope prefix"></i> Email</label>
+               <input name="email" type="text" id="form32" class="form-control">
+            </div>
+      
+            <div class="md-form">
+               
+               <label for="form34"><i class="fa fa-apple prefix"></i> Konu</label>
+               <input name="subject" type="text" id="form32" class="form-control">
+            </div>
+      
+            <div class="md-form">
+               
+               <label for="form8"><i class="fa fa-pencil prefix"></i> Mesajınız</label>
+               <textarea name="text" type="text" id="form8" class="form-control"></textarea>
+            </div>
+      
+            <div class="text-center">
+               <button type="submit" class="btn btn-primary">Gönder</button>
+            </div>
+         </form>
+      </section>
+      <!--/Section: Leave a reply (Not Logged In User)-->
+   </main>
+{% endblock body %}
+   

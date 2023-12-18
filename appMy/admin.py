@@ -17,3 +17,5 @@ class CommentAdmin(admin.ModelAdmin):
    list_display = ('blog', 'user','date_now')
    search_fields = ('blog__title','user__username')
    
+admin.site.register(Contact) # modeldeki tabloyu göster
+admin.site.register(Category) # modeldeki tabloyu göster

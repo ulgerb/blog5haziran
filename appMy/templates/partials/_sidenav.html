@@ -1,0 +1,82 @@
+<!-- Sidenav Start  -->
+<div class="col-4 mt-2 rounded-start-3" style="box-shadow: -3px 0px 0px cornflowerblue;">
+   <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">İlginizi Çekebilecek Yazılar</h6>
+   <!-- Recent posts -->
+   <section class="section blog-widget-content">
+
+      {% for i in blog_random_list %}
+      <div class="single-post my-3">
+         <div class="row">
+            <div class="col-4">
+               <div class="view overlay hm-white-slight z-depth-1 d-flex h-100">
+                  <a href="detail/{{ i.id }}"><img src="{{ i.image.url }}" class="rounded-2 img-fluid h-100"
+                        style="object-fit: cover;" alt=""></a>
+               </div>
+            </div>
+            <div class="col-8">
+               <div class="post-data">
+                  <p><i class="fa fa-clock-o"></i> {{ i.date_now }}</p>
+                  <a><i class="fa fa-comments-o"></i> {{ i.comment_num }}</a>
+               </div>
+               <h6><a href="detail/{{ i.id }}">{{ i.title }}</a></h6>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+
+   </section>
+
+   <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Beğenilenler</h6>
+   <ul class="list-group list-group-light mb-4">
+
+      {% for i in blog_likes %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+         <a href="/detail/{{ i.id }}" class="d-flex align-items-center">
+            <img src="{{ i.image.url }}" class="rounded-2" alt="" style="width: 100px; height: 100px" />
+            <div class="ms-3">
+               <p class="fw-bold mb-1">{{ i.title }}</p>
+               <div class="d-flex mb-2 gap-2 tags">
+                  <span>#Html</span>
+                  <span>#Css</span>
+                  <span>#Js</span>
+                  <span>#React</span>
+               </div>
+               <div class="d-flex justify-content-between">
+                  <span><i class="fa fa-clock-o"></i>{{ i.date_now }}</span>
+                  <span><i class="fa fa-comments-o"></i>{{ i.comment_num }} Yorum</span>
+               </div>
+            </div>
+         </a>
+      </li>
+      {% endfor %}
+
+   </ul>
+
+   <h6 class="bg-body-tertiary p-2 border-top border-bottom border-primary">En Çok Yorum Alanlar</h6>
+
+   <ul class="list-group list-group-light">
+      {% for i in blog_comments %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+         <a href="/detail/{{ i.id }}" class="d-flex align-items-center">
+            <img src="{{ i.image.url }}" class="rounded-2" alt="" style="width: 100px; height: 100px" />
+            <div class="ms-3">
+               <p class="fw-bold mb-1">{{ i.title }}</p>
+               <div class="d-flex mb-2 gap-2 tags">
+                  <span>#Html</span>
+                  <span>#Css</span>
+                  <span>#Js</span>
+                  <span>#React</span>
+               </div>
+               <div class="d-flex justify-content-between">
+                  <span><i class="fa fa-clock-o"></i>{{ i.date_now }}</span>
+                  <span><i class="fa fa-comments-o"></i>{{ i.comment_num }} Yorum</span>
+               </div>
+            </div>
+         </a>
+      </li>
+      {% endfor %}
+   </ul>
+
+
+</div>
+<!-- Sidenav End  -->
