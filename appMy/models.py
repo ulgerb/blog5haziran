@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
    title = models.CharField(("Kategori"), max_length=50)
+   color = models.CharField(("Renk"), max_length=50, null=True)
    slug = models.SlugField(("Slug"))
    
    def __str__(self) -> str: # admin panelinde obje ismi tanımlama

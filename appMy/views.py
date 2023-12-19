@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from appMy.models import *
 from django.db.models import Count
+from django.db.models import Q
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib import messages # kullanıcıya mesaj gönder
 
 # Create your views here.
 
@@ -63,9 +67,43 @@ def contactPage(request):
    context = {}
    return render( request, "contact.html", context)
 
-def allBlogPage(request):
-   blog_list = Blog.objects.all().order_by('-id')
+def allBlogPage(request, cslug=None):
+   
+   if cslug:
+      blog_list = Blog.objects.filter(category__slug = cslug).order_by('-id')
+   else:
+      blog_list = Blog.objects.all().order_by('-id')
+
+   query = request.GET.get("query")
+   if query:
+      blog_list = Blog.objects.filter(Q(title__icontains=query) | Q(text__icontains=query)) 
+      
+   category_list = Category.objects.all()
+   
    context = {
       "blog_list":blog_list,
+      "category_list":category_list,
    }
    return render( request, "blog-all.html", context)
+
+# USER VIEWS
+
+def loginPage(request):
+
+   if request.method == "POST":
+      username = request.POST.get("username")
+      password = request.POST.get("password")
+
+      user = authenticate(username=username, password=password) 
+      # kontrol eder doğruysa kullanıcı adını yanlışsa None döndürür
+      if user:
+         login(request, user)
+         
+         return redirect("indexPage")
+      else:
+         messages.error(request, "Kullanıcı adı veya şifre yanlış!!")
+         # [] messages listedir for ile döndürülmeli
+   
+   context = {}
+   return render(request, 'user/login.html', context)
+

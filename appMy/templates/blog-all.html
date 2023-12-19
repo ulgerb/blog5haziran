@@ -53,28 +53,24 @@
          <!-- Blog Card End  -->
 
          <div class="col-4">
+            <form method="GET" class="d-flex">
+               <input class="form-control pe-5" name="query" type="search" placeholder="Ara">
+               <button class="btn btn-secondary" type="submit" style="margin-left: -50px;">Ara</button>
+            </form>
             <ul class="list-group list-group-light">
-               <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <div>
-                     <div class="fw-bold">John Doe</div>
-                     <div class="text-muted">john.doe@gmail.com</div>
-                  </div>
-                  <span class="badge rounded-pill badge-success">Active</span>
-               </li>
-               <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <div>
-                     <div class="fw-bold">Alex Ray</div>
-                     <div class="text-muted">alex.ray@gmail.com</div>
-                  </div>
-                  <span class="badge rounded-pill badge-primary">Onboarding</span>
-               </li>
-               <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <div>
-                     <div class="fw-bold">Kate Hunington</div>
-                     <div class="text-muted">kate.hunington@gmail.com</div>
-                  </div>
-                  <span class="badge rounded-pill badge-warning">Awaiting</span>
-               </li>
+               
+               {% for i in category_list %}
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                     <div>
+                        <a href="{% url 'allBlogPage2' i.slug %}" class="fw-bold mycategory text-dark">
+                           <span style="background-color: {{ i.color }};" class="badge rounded-pill badge-warning"> </span>
+                           {{ i.title }}
+                        </a>
+                     </div>
+                     
+                  </li>
+               {% endfor %}
+                  
             </ul>
          </div>
 
@@ -87,6 +83,7 @@
 
 {% block head %}
 <style>
+   
    .tags span:nth-child(3n) {
       color: blueviolet;
    }

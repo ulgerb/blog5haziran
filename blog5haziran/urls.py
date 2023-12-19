@@ -22,8 +22,12 @@ from django.conf.urls.static import static
 # merhaba
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', indexPage),
-    path('detail/<bid>', detailPage),
-    path('iletisim', contactPage),
-    path('all', allBlogPage),
+    path('', indexPage, name="indexPage"),
+    path('detail/<bid>', detailPage,name="detailPage"),
+    path('iletisim', contactPage,name="contactPage"),
+    path('all', allBlogPage,name="allBlogPage"),
+    path('all/<cslug>', allBlogPage,name="allBlogPage2"),
+    # USER
+    path('login', loginPage,name="loginPage"),
+    
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
