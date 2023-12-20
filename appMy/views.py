@@ -107,3 +107,56 @@ def loginPage(request):
    context = {}
    return render(request, 'user/login.html', context)
 
+def logoutUser(request):
+   logout(request)
+   return redirect("loginPage")
+
+def registerPage(request):
+
+   if request.method == "POST":
+      fname = request.POST.get("fname")
+      lname = request.POST.get("lname")
+      email = request.POST.get("email")
+      username = request.POST.get("username")
+      password1 = request.POST.get("password1")
+      password2 = request.POST.get("password2")
+      
+      # böyle bir kullanıcı yoksa bu kullanıcıyı kaydet
+      boolup = boolnum = False
+      boolchar = True
+      if fname and lname and email and username and password1 and password2:
+      
+         if password1 == password2:
+            nonchar = "*;:@?.,ı"
+            for i in password1:
+               if i.isupper():
+                  boolup = True
+               if i.isnumeric():
+                  boolnum = True
+               if i in nonchar:
+                  boolchar = False
+            
+            if boolup and boolnum and boolchar and len(password1)>=6:
+               if not User.objects.filter(username=username).exists(): # exists varsa True yoksa False döndürür
+                  if not User.objects.filter(email=email).exists():
+                     # kaydetme işlemleri
+                     user = User.objects.create_user(first_name=fname, last_name=lname, email=email, username=username, password=password1)
+                     user.save()
+                     messages.success(request, "Kaydınız başarıyla tamamlandı...")
+                     return redirect("loginPage")
+                  else:
+                     messages.error(request, "bu email zaten kullanılıyor!")
+               else:
+                  messages.error(request, "bu kullanıcı adı zaten kullanılıyor!")
+            else:
+               messages.error(request, "Şifrenizde büyük harf, rakam ve enaz 6 karakterden oluşmalı!")
+               messages.error(request, f"{nonchar} bu karakterleri kullanmayınız !!")
+         else:
+            messages.error(request, "Şifreler eşleşmiyor!")
+      else:
+         messages.error(request, "Formda boş bırakılan yerler var!")
+         
+   
+   context = {}
+   return render(request, 'user/register.html', context)
+

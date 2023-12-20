@@ -19,6 +19,9 @@
       *{
          color: darkslategray;
       }
+      .bg-error{
+         background-color: rgb(205, 0, 0);
+      }
    </style>
    <title>Anasayfa</title>
 </head>
@@ -28,7 +31,7 @@
 
    
    {% for i in messages %}
-   <div class="text-center p-3 text-white bg-danger">{{ i }}</div>
+   <div class="text-center p-3 text-white bg-{{ i.tags }}">{{ i }}</div>
    {% endfor %}
       
    
