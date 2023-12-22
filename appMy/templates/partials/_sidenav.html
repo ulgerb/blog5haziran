@@ -9,7 +9,7 @@
          <div class="row">
             <div class="col-4">
                <div class="view overlay hm-white-slight z-depth-1 d-flex h-100">
-                  <a href="detail/{{ i.id }}"><img src="{{ i.image.url }}" class="rounded-2 img-fluid h-100"
+                  <a href="/detail/{{ i.id }}"><img src="{{ i.image.url }}" class="rounded-2 img-fluid h-100"
                         style="object-fit: cover;" alt=""></a>
                </div>
             </div>
@@ -18,7 +18,7 @@
                   <p><i class="fa fa-clock-o"></i> {{ i.date_now }}</p>
                   <a><i class="fa fa-comments-o"></i> {{ i.comment_num }}</a>
                </div>
-               <h6><a href="detail/{{ i.id }}">{{ i.title }}</a></h6>
+               <h6><a href="/detail/{{ i.id }}">{{ i.title }}</a></h6>
             </div>
          </div>
       </div>
